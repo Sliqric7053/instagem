@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-wrapper">
+                <div class="nav-left">
+                    <h1 class="logo">Instagram</h1>
+                </div>
+                <div class="nav-center">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search">
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <i class="fas fa-home"></i>
+                    <i class="fas fa-paper-plane"></i>
+                    <i class="fas fa-plus-square"></i>
+                    <i class="fas fa-compass"></i>
+                    <i class="fas fa-heart"></i>
+                    <div class="profile-pic">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=40&h=40&fit=crop&crop=face" alt="Profile">
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Stories Section -->
+            <div class="stories-container">
+                <div class="story">
+                    <div class="story-img">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face" alt="Story">
+                    </div>
+                    <span>Your Story</span>
+                </div>
+                <div class="story">
+                    <div class="story-img">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="Story">
+                    </div>
+                    <span>john_doe</span>
+                </div>
+                <div class="story">
+                    <div class="story-img">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face" alt="Story">
+                    </div>
+                    <span>jane_smith</span>
+                </div>
+                <div class="story">
+                    <div class="story-img">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face" alt="Story">
+                    </div>
+                    <span>mike_photo</span>
+                </div>
+            </div>
+
+            <!-- Posts Section -->
+            <div class="posts-container">
+                <!-- Post 1 -->
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="Profile">
+                            <div class="post-info">
+                                <h4>john_doe</h4>
+                                <span>New York, NY</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <div class="post-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop" alt="Post">
+                    </div>
+                    <div class="post-actions">
+                        <div class="action-buttons">
+                            <i class="far fa-heart like-btn"></i>
+                            <i class="far fa-comment"></i>
+                            <i class="far fa-paper-plane"></i>
+                        </div>
+                        <i class="far fa-bookmark save-btn"></i>
+                    </div>
+                    <div class="post-info-section">
+                        <div class="likes">
+                            <strong>1,234 likes</strong>
+                        </div>
+                        <div class="caption">
+                            <strong>john_doe</strong> Beautiful sunset at the beach! 🌅
+                        </div>
+                        <div class="comments-link">
+                            View all 23 comments
+                        </div>
+                        <div class="post-time">
+                            2 hours ago
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face" alt="Profile">
+                            <div class="post-info">
+                                <h4>jane_smith</h4>
+                                <span>Los Angeles, CA</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <div class="post-image">
+                        <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600&h=600&fit=crop" alt="Post">
+                    </div>
+                    <div class="post-actions">
+                        <div class="action-buttons">
+                            <i class="far fa-heart like-btn"></i>
+                            <i class="far fa-comment"></i>
+                            <i class="far fa-paper-plane"></i>
+                        </div>
+                        <i class="far fa-bookmark save-btn"></i>
+                    </div>
+                    <div class="post-info-section">
+                        <div class="likes">
+                            <strong>856 likes</strong>
+                        </div>
+                        <div class="caption">
+                            <strong>jane_smith</strong> Coffee and code ☕️💻
+                        </div>
+                        <div class="comments-link">
+                            View all 12 comments
+                        </div>
+                        <div class="post-time">
+                            5 hours ago
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-profile">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="Profile">
+                            <div class="post-info">
+                                <h4>mike_photo</h4>
+                                <span>San Francisco, CA</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <div class="post-image">
+                        <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=600&h=600&fit=crop" alt="Post">
+                    </div>
+                    <div class="post-actions">
+                        <div class="action-buttons">
+                            <i class="far fa-heart like-btn"></i>
+                            <i class="far fa-comment"></i>
+                            <i class="far fa-paper-plane"></i>
+                        </div>
+                        <i class="far fa-bookmark save-btn"></i>
+                    </div>
+                    <div class="post-info-section">
+                        <div class="likes">
+                            <strong>2,103 likes</strong>
+                        </div>
+                        <div class="caption">
+                            <strong>mike_photo</strong> Urban exploration 🏙️
+                        </div>
+                        <div class="comments-link">
+                            View all 45 comments
+                        </div>
+                        <div class="post-time">
+                            1 day ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="user-profile">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&h=60&fit=crop&crop=face" alt="Your Profile">
+                <div class="user-info">
+                    <h4>your_username</h4>
+                    <span>Your Name</span>
+                </div>
+                <button class="switch-btn">Switch</button>
+            </div>
+
+            <div class="suggestions">
+                <div class="suggestions-header">
+                    <h4>Suggestions For You</h4>
+                    <span>See All</span>
+                </div>
+                
+                <div class="suggestion">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=40&h=40&fit=crop&crop=face" alt="Suggestion">
+                    <div class="suggestion-info">
+                        <h5>alex_wilson</h5>
+                        <span>Suggested for you</span>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                </div>
+
+                <div class="suggestion">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=40&h=40&fit=crop&crop=face" alt="Suggestion">
+                    <div class="suggestion-info">
+                        <h5>sarah_jones</h5>
+                        <span>Suggested for you</span>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                </div>
+
+                <div class="suggestion">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face" alt="Suggestion">
+                    <div class="suggestion-info">
+                        <h5>david_lee</h5>
+                        <span>Suggested for you</span>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-links">
+                    <a href="#">About</a>
+                    <a href="#">Help</a>
+                    <a href="#">Press</a>
+                    <a href="#">API</a>
+                    <a href="#">Jobs</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+                <p>© 2024 Instagram Clone</p>
+            </div>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
