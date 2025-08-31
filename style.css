@@ -470,3 +470,227 @@ body {
 .like-btn.animate {
     animation: likeAnimation 0.3s ease-in-out;
 }
+
+/* Modal Styles */
+.ig-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.ig-modal {
+    background: white;
+    border-radius: 4px;
+    max-width: 90vw;
+    max-height: 90vh;
+    position: relative;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.ig-modal-close {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+}
+
+.ig-modal-close svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Post Modal Specific */
+.ig-post-modal {
+    width: 100%;
+    max-width: 1200px;
+    height: 90vh;
+    max-height: 600px;
+}
+
+.ig-post-modal-content {
+    display: flex;
+    height: 100%;
+}
+
+.ig-post-modal-media {
+    flex: 1;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 600px;
+}
+
+.ig-post-modal-media img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.ig-post-modal-details {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #dbdbdb;
+}
+
+.ig-modal-header {
+    padding: 14px 16px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.ig-modal-comments {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+}
+
+.ig-comment {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.ig-comment-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.ig-comment-content {
+    flex: 1;
+}
+
+.ig-comment-author {
+    font-weight: 600;
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.ig-comment-text {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.ig-comment-meta {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #8e8e8e;
+}
+
+.ig-comment-like,
+.ig-comment-reply {
+    background: none;
+    border: none;
+    color: #8e8e8e;
+    cursor: pointer;
+    padding: 0;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.ig-comment-like:hover,
+.ig-comment-reply:hover {
+    color: #262626;
+}
+
+.ig-modal-footer {
+    border-top: 1px solid #dbdbdb;
+}
+
+.ig-modal-footer .ig-post-actions {
+    padding: 8px 16px;
+}
+
+.ig-modal-footer .ig-post-info {
+    padding: 0 16px 12px;
+}
+
+.ig-modal-footer .ig-post-likes {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.ig-modal-footer .ig-post-time {
+    font-size: 10px;
+    color: #8e8e8e;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+}
+
+.ig-modal-footer .ig-add-comment {
+    border-top: 1px solid #dbdbdb;
+    padding: 12px 16px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .ig-post-modal {
+        max-width: 100vw;
+        max-height: 100vh;
+        height: 100vh;
+        border-radius: 0;
+    }
+    
+    .ig-post-modal-content {
+        flex-direction: column;
+    }
+    
+    .ig-post-modal-media {
+        min-width: auto;
+        height: 50vh;
+    }
+    
+    .ig-post-modal-details {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #dbdbdb;
+    }
+    
+    .ig-modal-close {
+        top: 15px;
+        right: 15px;
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

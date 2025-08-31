@@ -311,3 +311,159 @@ document.addEventListener('DOMContentLoaded', function() {
         navIcons[0].classList.add('active');
     }
 });
+
+// Modal functionality
+function openPostModal(element) {
+    const post = element.closest('.post');
+    const modal = document.getElementById('postModal');
+    
+    // Get post data
+    const postImage = post.querySelector('.post-image img').src;
+    const userAvatar = post.querySelector('.post-profile img').src;
+    const username = post.querySelector('.post-profile h4').textContent;
+    const location = post.querySelector('.post-profile span').textContent;
+    const caption = post.querySelector('.caption').textContent;
+    const likes = post.querySelector('.likes strong').textContent;
+    const postTime = post.querySelector('.post-time').textContent;
+    
+    // Populate modal with post data
+    document.getElementById('modalImage').src = postImage;
+    document.getElementById('modalUserAvatar').src = userAvatar;
+    document.getElementById('modalUsername').textContent = username;
+    document.getElementById('modalLocation').textContent = location;
+    document.getElementById('modalCaptionAvatar').src = userAvatar;
+    document.getElementById('modalCaptionUsername').textContent = username;
+    document.getElementById('modalCaptionText').textContent = caption.replace(username, '').trim();
+    document.getElementById('modalLikesCount').textContent = likes;
+    document.getElementById('modalTimestamp').textContent = formatTimestamp(postTime);
+    
+    // Show modal
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Initialize modal like/save buttons
+    initializeModalButtons();
+}
+
+function closeModal() {
+    const modal = document.getElementById('postModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restore background scrolling
+}
+
+function formatTimestamp(timeString) {
+    // Convert relative time to uppercase format (e.g., "2 hours ago" -> "2 HOURS AGO")
+    return timeString.toUpperCase();
+}
+
+function initializeModalButtons() {
+    // Like button in modal
+    const modalLikeBtn = document.querySelector('#postModal .like-btn');
+    modalLikeBtn.addEventListener('click', function() {
+        if (this.classList.contains('liked')) {
+            this.classList.remove('liked');
+            this.classList.remove('fas');
+            this.classList.add('far');
+            
+            // Update like count
+            const likesElement = document.getElementById('modalLikesCount');
+            const currentLikes = parseInt(likesElement.textContent.replace(/,/g, ''));
+            likesElement.textContent = (currentLikes - 1).toLocaleString() + ' likes';
+        } else {
+            this.classList.add('liked');
+            this.classList.remove('far');
+            this.classList.add('fas');
+            this.classList.add('animate');
+            setTimeout(() => this.classList.remove('animate'), 300);
+            
+            // Update like count
+            const likesElement = document.getElementById('modalLikesCount');
+            const currentLikes = parseInt(likesElement.textContent.replace(/,/g, ''));
+            likesElement.textContent = (currentLikes + 1).toLocaleString() + ' likes';
+        }
+    });
+    
+    // Save button in modal
+    const modalSaveBtn = document.querySelector('#postModal .save-btn');
+    modalSaveBtn.addEventListener('click', function() {
+        if (this.classList.contains('fas')) {
+            this.classList.remove('fas');
+            this.classList.add('far');
+        } else {
+            this.classList.remove('far');
+            this.classList.add('fas');
+        }
+    });
+    
+    // Comment form in modal
+    const commentForm = document.querySelector('#postModal .ig-add-comment');
+    const commentInput = commentForm.querySelector('input');
+    const commentSubmit = commentForm.querySelector('button');
+    
+    commentInput.addEventListener('input', function() {
+        if (this.value.trim()) {
+            commentSubmit.disabled = false;
+            commentSubmit.style.opacity = '1';
+        } else {
+            commentSubmit.disabled = true;
+            commentSubmit.style.opacity = '0.3';
+        }
+    });
+    
+    commentForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const commentText = commentInput.value.trim();
+        if (commentText) {
+            addCommentToModal(commentText);
+            commentInput.value = '';
+            commentSubmit.disabled = true;
+            commentSubmit.style.opacity = '0.3';
+        }
+    });
+}
+
+function addCommentToModal(commentText) {
+    const commentsContainer = document.querySelector('#postModal .ig-modal-comments');
+    const newComment = document.createElement('div');
+    newComment.className = 'ig-comment';
+    
+    newComment.innerHTML = `
+        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=32&h=32&fit=crop&crop=face" class="ig-comment-avatar">
+        <div class="ig-comment-content">
+            <span class="ig-comment-author">your_username</span>
+            <span class="ig-comment-text">${commentText}</span>
+            <div class="ig-comment-meta">
+                <time>now</time>
+                <button class="ig-comment-like">Like</button>
+                <button class="ig-comment-reply">Reply</button>
+            </div>
+        </div>
+    `;
+    
+    commentsContainer.appendChild(newComment);
+    commentsContainer.scrollTop = commentsContainer.scrollHeight;
+    
+    // Add event listeners to the new comment's buttons
+    const likeBtn = newComment.querySelector('.ig-comment-like');
+    const replyBtn = newComment.querySelector('.ig-comment-reply');
+    
+    likeBtn.addEventListener('click', function() {
+        this.style.color = this.style.color === 'rgb(237, 73, 86)' ? '#8e8e8e' : '#ed4956';
+        this.style.fontWeight = this.style.color === 'rgb(237, 73, 86)' ? '600' : '400';
+    });
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(e) {
+    const modal = document.getElementById('postModal');
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeModal();
+    }
+});

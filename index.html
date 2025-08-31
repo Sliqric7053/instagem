@@ -96,7 +96,7 @@
                         <div class="caption">
                             <strong>john_doe</strong> Beautiful sunset at the beach! 🌅
                         </div>
-                        <div class="comments-link">
+                        <div class="comments-link" onclick="openPostModal(this)">
                             View all 23 comments
                         </div>
                         <div class="post-time">
@@ -135,7 +135,7 @@
                         <div class="caption">
                             <strong>jane_smith</strong> Coffee and code ☕️💻
                         </div>
-                        <div class="comments-link">
+                        <div class="comments-link" onclick="openPostModal(this)">
                             View all 12 comments
                         </div>
                         <div class="post-time">
@@ -174,7 +174,7 @@
                         <div class="caption">
                             <strong>mike_photo</strong> Urban exploration 🏙️
                         </div>
-                        <div class="comments-link">
+                        <div class="comments-link" onclick="openPostModal(this)">
                             View all 45 comments
                         </div>
                         <div class="post-time">
@@ -243,6 +243,123 @@
                 <p>© 2024 Instagram Clone</p>
             </div>
         </aside>
+    </div>
+
+    <!-- Post Modal -->
+    <div class="ig-modal-overlay" id="postModal" style="display: none;" onclick="closeModal()">
+        <div class="ig-modal ig-post-modal" onclick="event.stopPropagation()">
+            <!-- Close button -->
+            <button class="ig-modal-close" onclick="closeModal()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            
+            <!-- Modal Content -->
+            <div class="ig-post-modal-content">
+                <!-- Left: Media -->
+                <div class="ig-post-modal-media">
+                    <img id="modalImage" src="" alt="Post">
+                </div>
+                
+                <!-- Right: Details -->
+                <div class="ig-post-modal-details">
+                    <!-- Header -->
+                    <header class="ig-modal-header">
+                        <div class="post-profile">
+                            <img id="modalUserAvatar" src="" alt="Profile">
+                            <div class="post-info">
+                                <h4 id="modalUsername"></h4>
+                                <span id="modalLocation"></span>
+                            </div>
+                        </div>
+                        <i class="fas fa-ellipsis-h"></i>
+                    </header>
+                    
+                    <!-- Comments Section -->
+                    <div class="ig-modal-comments">
+                        <!-- Caption -->
+                        <div class="ig-comment">
+                            <img id="modalCaptionAvatar" src="" class="ig-comment-avatar">
+                            <div class="ig-comment-content">
+                                <span class="ig-comment-author" id="modalCaptionUsername"></span>
+                                <span class="ig-comment-text" id="modalCaptionText"></span>
+                                <div class="ig-comment-meta">
+                                    <time id="modalCaptionTime">2h</time>
+                                    <button class="ig-comment-like">Like</button>
+                                    <button class="ig-comment-reply">Reply</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sample Comments -->
+                        <div class="ig-comment">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=32&h=32&fit=crop&crop=face" class="ig-comment-avatar">
+                            <div class="ig-comment-content">
+                                <span class="ig-comment-author">sarah_wilson</span>
+                                <span class="ig-comment-text">Amazing shot! 📸</span>
+                                <div class="ig-comment-meta">
+                                    <time>1h</time>
+                                    <button class="ig-comment-like">Like</button>
+                                    <button class="ig-comment-reply">Reply</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="ig-comment">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=32&h=32&fit=crop&crop=face" class="ig-comment-avatar">
+                            <div class="ig-comment-content">
+                                <span class="ig-comment-author">alex_photo</span>
+                                <span class="ig-comment-text">Love the composition! What camera did you use?</span>
+                                <div class="ig-comment-meta">
+                                    <time>45m</time>
+                                    <button class="ig-comment-like">Like</button>
+                                    <button class="ig-comment-reply">Reply</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="ig-comment">
+                            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=32&h=32&fit=crop&crop=face" class="ig-comment-avatar">
+                            <div class="ig-comment-content">
+                                <span class="ig-comment-author">travel_guru</span>
+                                <span class="ig-comment-text">This place looks incredible! Adding it to my bucket list ✈️</span>
+                                <div class="ig-comment-meta">
+                                    <time>30m</time>
+                                    <button class="ig-comment-like">Like</button>
+                                    <button class="ig-comment-reply">Reply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Actions and Add Comment -->
+                    <div class="ig-modal-footer">
+                        <!-- Post actions -->
+                        <div class="ig-post-actions">
+                            <div class="action-buttons">
+                                <i class="far fa-heart like-btn"></i>
+                                <i class="far fa-comment"></i>
+                                <i class="far fa-paper-plane"></i>
+                            </div>
+                            <i class="far fa-bookmark save-btn"></i>
+                        </div>
+                        
+                        <!-- Likes and timestamp -->
+                        <div class="ig-post-info">
+                            <div class="ig-post-likes" id="modalLikesCount">1,234 likes</div>
+                            <time class="ig-post-time" id="modalTimestamp">JANUARY 15, 2025</time>
+                        </div>
+                        
+                        <!-- Add comment form -->
+                        <form class="ig-add-comment">
+                            <input type="text" placeholder="Add a comment...">
+                            <button type="submit">Post</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
